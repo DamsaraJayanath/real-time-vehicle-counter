@@ -116,7 +116,7 @@ This prevents the same vehicle from being counted multiple times.
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/real-time-vehicle-counter.git
+git clone https://github.com/damsarajayanath/real-time-vehicle-counter.git
 ```
 
 Navigate to the project directory:
