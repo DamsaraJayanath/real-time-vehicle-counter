@@ -190,6 +190,19 @@ Possible improvements:
 
 ---
 
+## Video Source
+
+The sample traffic video used for testing and demonstration purposes was obtained from the YouTube channel:
+
+**Creative ASMR & Stock Footage (Riley Kearl)**
+
+The video is used only for educational and demonstration purposes to test the vehicle detection, tracking, and counting pipeline.
+
+All rights belong to the original content creator.
+
+Source:
+
+* YouTube Channel: Creative ASMR & Stock Footage (Riley Kearl)
 
 
 
