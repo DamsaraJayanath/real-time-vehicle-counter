@@ -190,21 +190,6 @@ Possible improvements:
 
 ---
 
-## Learning Outcomes
 
-Through this project, I gained practical experience in:
 
-* Object detection
-* Multi-object tracking
-* YOLO model inference
-* OpenCV video processing
-* Real-time computer vision systems
-* Tracking and counting algorithms
 
----
-
-## Author
-
-**Damsara Jayanath**
-
-Machine Learning / Computer Vision Engineer in Progress
