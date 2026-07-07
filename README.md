@@ -1,12 +1,12 @@
-# Real-Time Vehicle Detection and Counting System using YOLOv8 and SORT
+# Real-Time Vehicle Counter
 
 ## Overview
 
-This project implements a real-time vehicle detection, tracking, and counting system using Computer Vision techniques.
+**Real-Time Vehicle Counter** is a computer vision project that detects, tracks, and counts vehicles from video input using YOLOv8, OpenCV, and the SORT tracking algorithm.
 
-The system detects vehicles from video input using YOLOv8, tracks detected vehicles using the SORT tracking algorithm, and counts vehicles when they cross a predefined counting line.
+The system performs real-time vehicle detection using YOLOv8, assigns unique IDs to detected vehicles using SORT tracking, and counts vehicles when they cross a predefined counting line.
 
-The goal of this project is to explore practical applications of object detection and multi-object tracking in real-world scenarios such as traffic monitoring and intelligent transportation systems.
+This project demonstrates the practical application of object detection, multi-object tracking, and real-time computer vision pipelines for traffic monitoring systems.
 
 ---
 
@@ -16,8 +16,9 @@ The goal of this project is to explore practical applications of object detectio
 * Multi-object tracking with unique IDs
 * Vehicle counting using line-crossing detection
 * Bounding box visualization
-* Confidence-based detection filtering
-* Region-of-interest masking for improved detection efficiency
+* Confidence score filtering
+* Region-of-interest masking
+* Real-time video processing
 
 ---
 
@@ -62,27 +63,31 @@ Vehicle Count
 
 ## Project Workflow
 
-### 1. Object Detection
+### 1. Vehicle Detection
 
 YOLOv8 processes each video frame and detects objects by generating:
 
 * Bounding boxes
-* Class labels
+* Object classes
 * Confidence scores
 
-Example output:
+Example:
 
 ```
 Vehicle:
-x1, y1, x2, y2
-Confidence: 0.91
+(x1, y1, x2, y2)
+
+Confidence:
+0.91
 ```
 
 ---
 
-### 2. Object Tracking
+### 2. Vehicle Tracking
 
-The SORT algorithm receives YOLO detections and assigns unique IDs to detected vehicles.
+The detected objects are passed to the SORT tracking algorithm.
+
+SORT assigns unique IDs to vehicles and maintains their identity across multiple frames.
 
 Example:
 
@@ -92,7 +97,7 @@ Vehicle ID 2
 Vehicle ID 3
 ```
 
-This allows the system to identify the same vehicle across multiple frames.
+This allows the system to recognize the same vehicle while it moves through the video.
 
 ---
 
@@ -100,7 +105,9 @@ This allows the system to identify the same vehicle across multiple frames.
 
 A virtual counting line is placed in the video.
 
-When a tracked vehicle's center point crosses this line, the system increases the vehicle count.
+When the center point of a tracked vehicle crosses this line, the vehicle ID is added to the count list.
+
+This prevents the same vehicle from being counted multiple times.
 
 ---
 
@@ -109,16 +116,16 @@ When a tracked vehicle's center point crosses this line, the system increases th
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/vehicle-detection-and-counting-yolov8.git
+git clone https://github.com/yourusername/real-time-vehicle-counter.git
 ```
 
-Navigate to the project folder:
+Navigate to the project directory:
 
 ```bash
-cd vehicle-detection-and-counting-yolov8
+cd real-time-vehicle-counter
 ```
 
-Install dependencies:
+Install required dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -128,7 +135,7 @@ pip install -r requirements.txt
 
 ## Requirements
 
-Create `requirements.txt`:
+Create a `requirements.txt` file:
 
 ```
 opencv-python
@@ -143,7 +150,7 @@ scipy
 
 ## Running the Project
 
-Run:
+Run the application:
 
 ```bash
 python main.py
@@ -163,9 +170,10 @@ to close the video window.
 
 The system can:
 
-* Detect vehicles in video streams
-* Track each vehicle with a unique ID
-* Count vehicles passing through a selected area
+* Detect vehicles from video streams
+* Track multiple vehicles simultaneously
+* Assign unique IDs
+* Count vehicles crossing a selected area
 
 ---
 
@@ -175,10 +183,10 @@ Possible improvements:
 
 * Train YOLO on custom vehicle datasets
 * Add vehicle speed estimation
-* Add vehicle classification (car, bus, truck)
-* Deploy as a real-time traffic monitoring application
-* Add dashboard visualization
-* Use advanced trackers such as DeepSORT or ByteTrack
+* Add vehicle type classification
+* Create a real-time traffic dashboard
+* Deploy as an API service
+* Use advanced tracking algorithms such as DeepSORT or ByteTrack
 
 ---
 
@@ -188,14 +196,15 @@ Through this project, I gained practical experience in:
 
 * Object detection
 * Multi-object tracking
-* Real-time computer vision pipelines
 * YOLO model inference
 * OpenCV video processing
+* Real-time computer vision systems
+* Tracking and counting algorithms
 
 ---
 
 ## Author
 
-Damsara Jayanath
+**Damsara Jayanath**
 
 Machine Learning / Computer Vision Engineer in Progress
